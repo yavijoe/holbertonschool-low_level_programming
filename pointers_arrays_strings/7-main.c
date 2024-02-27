@@ -7,11 +7,11 @@
  */
 int main(void)
 {
-    char *str;
+	char *str;
 
-    str = "0123456789";
-    puts_half(str);
-    return (0);
+	str = "0123456789";
+	puts_half(str);
+	return (0);
 }
 
 /**
@@ -20,20 +20,20 @@ int main(void)
  */
 void puts_half(char *str)
 {
-    int length = 0;
-    int i;
+	int length = 0;
+	int i;
 
-    /* Calculate the length of the string */
-    while (str[length] != '\0')
-    {
-        length++;
-    }
+	/* Calculate the length of the string */
+	while (str[length] != '\0')
+	{
+		length++;
+	}
 
-    /* Print the second half of the string */
-    for (i = length / 2; i < length; i++)
-    {
-        _putchar(str[i]);
-    }
-    _putchar('\n');
+	/* Print the second half of the string */
+	for (i = length / 2; i < length; i++)
+	{
+		_putchar(str[i]);
+	}
+	_putchar('\n');
 }
 
