@@ -4,34 +4,48 @@
 #include <ctype.h>
 
 /**
- * main - Entry point
- *@argc: number of arguments
- *@argv: string with arguments
- * Return: Always 0 (Success)
+ * main - entry point
+ * @argc: character
+ * @argv: character
+ *
+ * Description: -
+ * Return: -
  */
 int main(int argc, char *argv[])
 {
-	long int sum;
-	int i;
-	int j;
+	int coin;
+	int total = 0;
+	int coins[] = {25, 10, 5, 2, 1};
+	int i = 0;
 
-	(void)argv;
-	sum = 0;
-	if (argc > 1)
+	if (argc != 2)
 	{
-		for (i = 1; i < argc; i++)
+		printf("Error\n");
+		return (1);
+	}
+	for (i = 1; i < (int)strlen(argv[1]); i++)
+	{
+		if (!isdigit(argv[1][i]))
 		{
-			for (j = 0; argv[i][j] != '\0'; j++)
-			{
-				if (!(isdigit(argv[i][j])))
-				{
-					printf("Error\n");
-					return (1);
-				}
-			}
-			sum += atoi(argv[i]);
+			printf("Error\n");
+			return (1);
 		}
 	}
-	printf("%ld\n", sum);
+	coin = atoi(argv[1]);
+	while (coin > 0)
+	{
+		i = 0;
+		while (i < 5)
+		{
+			if (coins[i] <= coin)
+			{
+				coin -= coins[i];
+				total++;
+				break;
+			}
+			i++;
+		}
+	}
+	printf("%d\n", total);
 	return (0);
 }
